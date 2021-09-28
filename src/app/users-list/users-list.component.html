@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+  </thead>
+  <tbody *ngFor="let user of usersList">
+      <tr>
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.status}}</td>
+        <td>
+          <i class="fa fa-pencil-square-o mx-2" aria-hidden="true" (click)="editUser(user)"></i>
+          <i class="fa fa-trash mx-2" aria-hidden="true"></i>
+        </td>
+      </tr>
+  </tbody>
+</table>

@@ -1,0 +1,29 @@
+<label for="name">Name: </label>
+<input id="name" type="text" [formControl]="name">
+<p>Value: {{ name.value }}</p>
+<button (click)="updateName()">Update Name</button>
+<h4>Profile Form</h4>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+  <label for="first-name">First Name: </label>
+  <input id="first-name" type="text" formControlName="firstName">
+
+  <label for="last-name">Last Name: </label>
+  <input id="last-name" type="text" formControlName="lastName">
+
+  <label for="email-name">Email: </label>
+  <input id="email-name" type="email" formControlName="email">
+
+  <p>Complete the form to enable button.</p>
+<button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
+<h5>Search with React</h5>
+<input type="search"
+       cla
+       ss="form-control"
+       placeholder="Please enter search term"
+       [formControl]="searchField">
+<hr/>
+<ul>
+  <li *ngFor="let search of searches">{{ search }}</li>
+</ul>
