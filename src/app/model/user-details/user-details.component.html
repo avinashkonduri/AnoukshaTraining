@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <h4 class="modal-title">Edit User</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <div class="forn-group col-12">
+      <label for="id" class="form-label">id: </label>
+      <input id="id" type="text" formControlName="id" class="form-control">
+    </div>
+    <div class="forn-group col-12">
+      <label for="name" class="form-label">Name: </label>
+      <input id="name" type="text" class="form-control" formControlName="name">
+    </div>
+    <div class="forn-group col-12">
+      <label for="name" class="form-label">Gender: </label>
+      <input id="name" type="radio" formControlName="gender" value="male">Male
+      <input id="name" type="radio" formControlName="gender" value="female">Female
+    </div>
+
+    <div class="forn-group col-12">
+      <label for="email" class="form-label">Email: </label>
+      <input id="email" type="text" class="form-control" formControlName="email">
+    </div>
+
+    <div class="forn-group col-12">
+      <label for="status" class="form-label">Status: </label>
+      <input id="status" type="text" class="form-control" formControlName="status">
+    </div>
+    <div class="forn-group col-12">
+      <button type="submit" [disabled]="!profileForm.valid" class="btn btn-sm btn-primary">Submit</button>
+    </div>
+
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

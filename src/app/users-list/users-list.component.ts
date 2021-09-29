@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { UserDetailsComponent } from '../model/user-details/user-details.component';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -8,7 +10,7 @@ import { UserService } from '../services/user.service';
 })
 export class UsersListComponent implements OnInit {
   usersList!: any;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private ModelService: NgbModal) { }
 
   ngOnInit(): void {
     this.getUserSList();
@@ -23,5 +25,20 @@ export class UsersListComponent implements OnInit {
 
   editUser(user: any){
     console.log(user);
+    const modalRef = this.ModelService.open(UserDetailsComponent, {
+        scrollable: true,
+        windowClass: 'myCustomModalClass',
+        // keyboard: false,
+        // backdrop: 'static'
+    });
+    let data = {
+      id:user.id
+    }
+
+    modalRef.componentInstance.fromParent = data;
+    modalRef.result.then((result) => {
+      console.log(result);
+    }, (reason) => {
+    });
   }
 }

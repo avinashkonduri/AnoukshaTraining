@@ -9,12 +9,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UsersListComponent } from './users-list/users-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserDetailsComponent } from './model/user-details/user-details.component';
 @NgModule({
   declarations: [
     AppComponent,
     TestingComponent,
     ReactiveFormsComponent,
-    UsersListComponent
+    UsersListComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
