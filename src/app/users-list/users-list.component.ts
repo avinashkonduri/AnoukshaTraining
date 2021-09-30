@@ -32,7 +32,8 @@ export class UsersListComponent implements OnInit {
         // backdrop: 'static'
     });
     let data = {
-      id:user.id
+      id:user.id,
+      action: 'edit'
     }
 
     modalRef.componentInstance.fromParent = data;
@@ -40,5 +41,24 @@ export class UsersListComponent implements OnInit {
       console.log(result);
     }, (reason) => {
     });
+  }
+
+  addUser(){
+    const modalRef = this.ModelService.open(UserDetailsComponent, {
+      scrollable: true,
+      windowClass: 'myCustomModalClass',
+      // keyboard: false,
+      // backdrop: 'static'
+  });
+  let data = {
+    action: 'new'
+  }
+
+  modalRef.componentInstance.fromParent = data;
+  modalRef.result.then((result) => {
+    console.log(result);
+    this.getUserSList();
+  }, (reason) => {
+  });
   }
 }

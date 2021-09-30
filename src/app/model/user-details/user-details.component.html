@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title">Edit User</h4>
+  <h4 class="modal-title">{{fromParent.action == 'new' ? 'Add User' : 'Edit User'}}</h4>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -7,7 +7,7 @@
 <div class="modal-body">
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 
-    <div class="forn-group col-12">
+    <div class="forn-group col-12" *ngIf="fromParent.action != 'new'">
       <label for="id" class="form-label">id: </label>
       <input id="id" type="text" formControlName="id" class="form-control">
     </div>
@@ -31,7 +31,7 @@
       <input id="status" type="text" class="form-control" formControlName="status">
     </div>
     <div class="forn-group col-12">
-      <button type="submit" [disabled]="!profileForm.valid" class="btn btn-sm btn-primary">Submit</button>
+      <button type="submit" [disabled]="!profileForm.valid" class="btn btn-sm btn-primary">{{this.fromParent.action == 'new' ? 'Add User' : 'Update User'}}</button>
     </div>
 
   </form>
